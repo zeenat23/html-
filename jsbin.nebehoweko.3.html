@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by anonymous (http://jsbin.com/nebehoweko/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+var first=" rose ";
+var person={
+   first:'jack',
+     yob: 1990,
+       job:'pilot',
+}
+function Person(pName,year,pjob)
+{
+  this.first=pName;
+  this.yob=year;
+  this.job=pjob;
+  
+  
+  this.calculateAge = function(){
+    console.log(2019 - this.year)
+  }
+  
+}
+var john =new Person('john',1992,'Pilot')
+console.log(john.calculateAge());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	
+</head>
+<body>
+	<button onclick="myFunction();"> submit </button>
+	   
+	<script type="text/javascript">
+    var arraylist = ["yxz","cad","ba","bc","bts", "a","b"];
+		function myFunction(text)
+		 {     
+     
+           var arr=[];
+           debugger;
+            for(i=0;i<text.length;i++)
+            { 
+              let chars = text[i].split('').sort().join('');
+               arr.push(chars);
+               
+         }
+         console.log(arr);
+         
+       }
+         myFunction(arraylist);
+
+ 
+
+
+	
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> DOCUMENT </title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
+</head>
+<body>
+	<div class="container">
+	
+			<div style="text-align: center;" class="col ">
+			<button class="btn btn-success" onclick="changeBackground()">Click Me!</button>
+		</div>
+	</div>
+	<script>
+		const button=document.querySelector('button');
+		const body=document.querySelector('body');
+		const colors=['red','green','yellow','blue','purple','violet']
+		 body.style.backgroundColor="pink";
+		
+		  function changeBackground()
+		  {
+		  	const colorIndex= parseInt(Math.random()*colors.length+1)
+		  	body.style.backgroundColor=colors[colorIndex];
+		  }
+
+	</script>
+</body>
+</html>

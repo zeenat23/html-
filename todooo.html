@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style type="text/css">
+	body{
+		text-align: center;
+		background-color: lightblue;
+
+	}
+	.container{
+		margin-top: 110px;
+		width: 350px;
+		background-color: darkblue;
+		padding-top: 50px;
+		padding-bottom: 100px;
+
+	}
+	button{
+		background-color: red;
+		color: white;
+	}
+	h1{
+		color:white;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+
+	<h1> TODO LIST</h1>
+	<div>
+		<input type="text" name="name" id = "name">
+		<button  id="button" onclick="add()"> Add task </button>
+		<div style="color: white;" id = "val"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	  function add()
+	{debugger;
+	var text = document.getElementById('name').value;
+	dynamic.push({name:text})
+	list();
+    }
+    var dynamic =[];
+    function list()
+    {
+    	str="";
+
+    	for(var i=0;i<dynamic.length;i++)
+    	{   var id=dynamic[i].id;
+    	dynamic[i].id=i+1;
+
+    		str += "<div><span>"+  dynamic[i].name  +"  " +  "<button onclick='onDelete(this);'> delete </button</Span></div><br>";
+                    
+    	}
+    	document.getElementById("val").innerHTML= str;
+
+    }
+
+    function onDelete(e)
+    {  
+    	id = e.id;
+    	if(confirm("Do you really want to delete"))
+    	{
+    		var filter = dynamic.filter(ids=>ids.id != id)
+    		list();
+    	}
+
+    }
+
+
+</script>
+</body>
+</html>
+
+        

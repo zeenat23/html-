@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	
+</head>
+<body>
+	<button onclick="myFunction();"> submit </button>
+	   
+	<script type="text/javascript">
+		function myFunction(N)
+		 { 
+       
+        for(var i=1;i<=N;i++)
+        { 
+          if(i%3==0)
+          {
+            console.log("FIZZ");
+          }
+          else if(i%5==0)
+          {
+            console.log("BUZZ");
+          }
+          else if(i%5==0 && i%3==0)
+          {
+            console.log("FIZZBUZZ");
+          }
+          else
+          {
+            console.log(i);
+          }
+        }
+
+
+     }
+     myFunction(10);
+
+ 
+
+
+	
+	</script>
+
+
+</body>
+</html>

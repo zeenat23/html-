@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> calculator </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+  <style>
+  body{
+    width:600px;
+    border: 1px solid black;
+    margin: 50px;
+    padding: 40px;
+    }
+    div{
+      width: 200px;
+       border: 1px solid black;
+        background-color: brown;
+
+    }
+  div.container h1{
+    
+    
+     background-color: black;
+     color: white;
+
+  }
+
+
+  </style>
+</head>
+<body>
+  
+  <div class="container" align="center">
+  <h1><center>Tip Calculator</center></h1>
+  <form>
+  
+		 <label><b> How Much was your bill?</b></label><br>
+         $<input type="salary" name="salary" id="salary" placeholder="Bill Amount"><br><br>
+     
+    
+          <label><b>How was your Service?</b></label><br>
+          <select id="service">  <option disabled selected value="0">-- Choose an Option --</option>
+            <option value="0.3">30&#37 &#45; Outstanding</option>
+            <option value="0.2">20&#37; &#45; Good</option>
+            <option value="0.15">15&#37; &#45; It was OK</option>
+            <option value="0.1">10&#37; &#45; Bad</option>
+            <option value="0.05">5&#37; &#45; Terrible</option>
+        </select>
+
+    </form>
+    <br> <br>
+   
+          <label><b>How many people are sharing the bill?<b></label><br>
+          <input type="text"  placeholder="Number of people" id="bill">people <br><br>
+          <button id="calculate"> calculate </button>
+           <div id="totalTip">
+           <sup> $ </sup><span id="tip">0.00</span>
+            <small id="each">each</small>
+          </div>
+        </div>
+        <script type="text/javascript">
+          function calculateTip() {
+  
+  var billAmt = document.getElementById("salary").value;
+  var serviceQual = document.getElementById("service").value;
+  var numOfPeople = document.getElementById("bill").value;
+
+//validate input
+         
+
+  if (billAmt === "" || serviceQual == 0) {
+    alert("Please enter values");
+    return;
+  }
+  //Check to see if this input is empty or less than or equal to 1
+ if (numOfPeople === "" || numOfPeople <= 1) {
+    numOfPeople = 1;
+    document.getElementById("each").style.display = "none";
+  } else {
+    document.getElementById("each").style.display = "block";
+  }
+
+  //Calculate tip
+  var total = (billAmt * serviceQual) / numOfPeople;
+  //round to two decimal places
+  total = Math.round(total * 100) / 100;
+  //next line allows us to always have two digits after decimal point
+   total = total.toFixed(2);
+  //Display the tip
+  document.getElementById("totalTip").style.display = "block";
+  document.getElementById("tip").innerHTML = total;
+
+}
+
+//Hide the tip amount on load
+document.getElementById("totalTip").style.display = "none";
+document.getElementById("each").style.display = "none";
+
+//click to call function
+document.getElementById("calculate").onclick = function() {
+  calculateTip();
+};
+  
+
+        </script>
+
+        </body>
+    </html>                
+         

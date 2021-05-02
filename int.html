@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+    
+	
+</head>
+<body>
+	<input type="text" id = "name"><br>
+	<input type="password" id = "pass">
+	<button onclick="myFunction();" id="button"> submit </button>
+	   
+	<script type="text/javascript">
+		function myFunction()
+		{
+			
+			var get = document.getElementById('name').value;
+			var set =  document.getElementById('pass').value;
+			  if (get == set)
+			 {
+			 	console.log("same");
+
+			 }
+			 else 
+			 {
+			 	alert("not same")
+			 }
+		
+		}
+		myFunction();
+	</script>

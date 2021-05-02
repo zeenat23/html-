@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title> 
+            to-do list 
+        </title> 
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+         <style type="text/css">
+         	ul{
+         		text-align: center;
+         	}
+         	div
+         	{
+         		display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 10%;
+         	}
+         	body input{
+         		background-color: grey;
+         		color: white;
+         	}
+         	body button{
+         		background-color: lightblue;
+         	}
+         	
+         </style>
+     </head>
+         <body style="text-align: center; margin: 30px;">
+         	<input type="text" placeholder="enter a task" id = "name" name = "name"/>
+            <button id="button" onclick="submit();" ><Span class="fa fa-plus"></Span></button>
+
+            <div><ul id="ul"></ul></div>
+          </body>
+          <script type="text/javascript">
+          	
+          	function submit()
+          	{
+          	var text = document.getElementById("name").value;
+          	var button = document.getElementById("button");
+          	
+          		if(text=="")
+          		{
+          			alert("please enter the text");
+          			return false;
+          		}
+          		
+          		
+                dynamic.push({name:text});
+                list();
+              
+          		}
+          		
+          		 var dynamic = [] ;
+          		   function list(){
+          		   	var str="";
+          		   	  for(var i=0;i<dynamic.length;i++)
+                   { 
+                	
+                	dynamic[i].id=i+1;
+str += "<li><span>"+  dynamic[i].name  + "</span><Span id='"+dynamic[i].id+"' onclick='onDelete(this);' class='fa fa-trash'></Span></li><br>";
+                    
+                 }
+                document.getElementById("ul").innerHTML = str;
+
+          		   }    		
+          function onDelete(e)
+          {//debugger;
+          	id = e.id;
+          	if(confirm("do you really want to delete?"))
+          	{
+          		
+               var filter = dynamic.filter(ids=>ids.id != id)
+               dynamic  = filter;
+               list();
+          	}
+          }
+          </script>
+    </html>
+
+
+      

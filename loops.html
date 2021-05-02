@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	
+</head>
+<body>
+	<button onclick="myFunction();"> submit </button>
+	   
+	<script type="text/javascript">
+		function myFunction()
+		{debugger;
+
+			/*var ar1 = [1,2,3,4,5,6];
+			var ar2 = [9,2,3,4,7,8];*/
+        var ar1=[{id:1,name:"zeenat"},{id:2,name:"probin"},{id:3,name:"geeta"},{id:4,name:"seeta"},{id:5,name:"bata"},{id:6,name:"gata"}];
+        var ar2=[{id:7,name:"zeenat"},{id:2,name:"probin"},{id:3,name:"geeta"},{id:9,name:"seeta"},{id:10,name:"bata"},{id:11,name:"gata"}];
+            
+              var array=[];
+    
+              for(var i=0;i<ar1.length;i++)
+              {
+             
+              	var list= ar2.filter(idarray=>idarray.id==ar1[i].id);
+              	if(list.length>0)
+                    array.push(list[0]);
+              	
+              }
+              console.log(array);
+
+
+		 }
+
+ 
+
+
+	
+	</script>
+
+
+</body>
+</html>

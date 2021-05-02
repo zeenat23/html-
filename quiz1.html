@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+ body{
+ 	text-align: center;
+
+ }
+ button{
+ 	margin-top: 220px;
+ 	border-radius: 10px;
+ 	color: white;
+ 	background-color: red;
+ 	padding: 5px;
+ }
+ div{
+     width: 800px;
+ 	 
+ 	
+ 	
+ 	background-color: darkblue;
+ }
+ ul{
+  list-style-type: none;
+ }
+ /*input[type=radio]{
+ 	border:0px;
+ 	width:20px;
+ 	height:2em;
+ }*/
+
+</style>
+<body>
+	<div class="container">
+
+	<h1  style="color: white;"> Choose the correct answers!</h1>
+	<div style="color: white;" class="question">  </div>
+	<div style="color: white;" class="choiceList">  </div>
+	<div style="color: white;" class="quizMessage">  </div>
+	<div style="color: white;" class="result">  </div>
+	
+		<button  class="nextButton"> Next Question </button>
+
+</div>
+<script type="text/javascript">
+	var questions = [{
+    question: "What is 2*5?",
+    choices: [2, 5, 10, 15, 20],
+    correctAnswer: 2
+  }, {
+    question: "What is 3*6?",
+    choices: [3, 6, 9, 12, 18],
+    correctAnswer: 4
+  }, {
+    question: "What is 8*9?",
+    choices: [72, 99, 108, 134, 156],
+    correctAnswer: 0
+  }, {
+    question: "What is 1*7?",
+    choices: [4, 5, 6, 7, 8],
+    correctAnswer: 3
+  }, {
+    question: "What is 8*8?",
+    choices: [20, 30, 40, 50, 64],
+    correctAnswer: 4
+  }];
+  var currentQuestion = 0;
+  var correctAnswers = 0;
+  var quizOver = false;
+
+   $(document).ready(function(){ // it checks that document is fully loaded before it executes the code 
+   displaycurrentQuestion();
+   $(this).find(".quizMessage").hide();
+   $(this).find(".nextButton").on("click",function(){
+   	if(! quizOver )
+   	{
+   		value = $("input[type='radio']:checked").val();
+   		if(value==undefined)
+   		{
+   			 $(document).find(".quizMessage").text("please select an anser").show();
+   			
+   		}else{
+   			 $(document).find(".quizMessage").hide();
+   			 if(value==questions[currentQuestion].correctAnswer){
+   			 	correctAnswers++;
+   			 }
+   			 currentQuestion++;
+   			 if(currentQuestion<questions.length){
+   			 	displaycurrentQuestion();
+   			 }
+   			 else{
+   			 	displayScore();
+   			 	$(document).find(".nextButton").text("play again?");
+   			 	quizOver=true;
+   			 }
+
+   		}
+   	}else
+   	{
+   		quizOver = false;
+   		$(document).find(".nextButton").text("Next Question");
+   		resetQuiz();
+   		displaycurrentQuestion();
+   		hideScore();
+   	}
+   });
+
+
+  });
+
+
+
+     function displaycurrentQuestion()
+    {
+  	var question = questions[currentQuestion].question;
+  	var questionClass = $(document).find(".container> .question");
+  	var choiceList = $(document).find(".container> .choiceList");
+  	var numChoices = questions[currentQuestion].choices.length;
+  	$(questionClass).text(question);//set questionclass to current question
+  	$(choiceList).find("ul").remove();
+  	var choice;
+  	for(i=0;i<numChoices;i++)
+  	{
+  		choice = questions[currentQuestion].choices[i]
+  		$('<ul><li><input type="radio" value ='+ i +' name="dyradio"/>'+choice+'</li></ul>').appendTo(choiceList);
+  	}
+  }
+
+  function resetQuiz()
+  {
+  	currentQuestion=0;
+  	correctAnswers = 0;
+  	hideScore();
+  }
+
+  function displayScore()
+  {
+  	$(document).find(".container> .result").text("you scored: "+ correctAnswers +" out of "+ questions.length);
+  	$(document).find(".container> .result").show();
+
+  }
+  function hideScore()
+  {
+  	$(document).find(".result").hide();
+  }
+</script>
+</body>
+</html>
+
+        

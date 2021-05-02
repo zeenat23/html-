@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title> 
+            Create a Form Dynamically with  
+            the JavaScript 
+        </title> 
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette">
+         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css">      
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="validation.js"></script>
+    <style type="text/css">
+            th{
+            background-color: #0095ff;
+            color: white; 
+
+           }
+         </style>
+    <body style="text-align: center;">
+<div class="container" style="padding: 10px;border: 1px solid gray;border-radius: 10px 10px 10px 10px">
+    	<h1 style="color: green;">Create Input Dynamically</h1>
+    	<p> 
+          Click on the button to create 
+          a form dynamically 
+        </p> 
+        <div class="d-flex justify-content-center p-2">
+        <div class="bg-light p-5">
+      
+          <div id="dynamicForm">
+
+ <button id="button" class="btn btn-danger" onclick="myFunction()">Click Here</button><br>
+</div>
+    
+
+<table class="table table-bordered">
+  <tr>
+    <th>name </th>
+    <th>email </th>
+    <th>
+      date
+    </th>
+   </tr>
+   <tbody id="col">
+
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+      <script type="text/javascript">
+        function dateload() {
+    $("#dob").datepicker();
+  };
+           var arrayList = [];
+           function myFunction()
+           {  
+          
+            var DynamicForm = "" ;
+            DynamicForm +=' <div class="row">';
+            DynamicForm +=' <div class="col-md-12">';
+            DynamicForm +=' <div class="col-md-4">';
+            DynamicForm +='<label for="validationCustom01" class="form-label">Name</label>';
+            DynamicForm +=" </div>";
+            DynamicForm +=" <div class='col-md-8'>";
+            DynamicForm +=" <input type='text' class='form-control' id='validationCustom01' required/>";
+            DynamicForm +=" <div class='invalid-feedback'>Please choose a name.</div> ";
+            DynamicForm +=" </div>";
+           
+            DynamicForm +=' <div class="row">';
+            DynamicForm +=' <div class="col-md-12">';
+            DynamicForm +=' <div class="col-md-4">';
+            DynamicForm +='<label for="validationCustom02" class="form-label">Email</label>';
+            DynamicForm +=" </div>";
+            DynamicForm +=" <div class='col-md-8'>";
+            DynamicForm +=" <input type='text' class='form-control' id='validationCustom02' required/>";
+            DynamicForm +=" <div class='invalid-feedback'>Please choose a email.</div> ";
+            DynamicForm +=" </div>";
+            DynamicForm +=' <div class="row">';
+            DynamicForm +=' <div class="col-md-12">';
+            DynamicForm +=' <div class="col-md-4">';
+            DynamicForm +='<label for="validationCustom03" class="form-label">Dob</label>';
+            DynamicForm +=" </div>";
+            DynamicForm +=" <div class='col-md-8'>";
+            DynamicForm +=" <input type='text' class='form-control' id='validationCustom03' required/>";
+            DynamicForm +=" <div class='invalid-feedback'>Please choose a dob.</div> ";
+            DynamicForm +=" </div>";
+           
+            DynamicForm +='<br>';
+            DynamicForm +='<input type="button"  class="btn btn-primary" onclick="submit(this)" value="Submit" name="submit">';
+       
+            document.getElementById("dynamicForm").innerHTML = DynamicForm;
+            dateload(); //trigger date picker       
+        }
+
+            function submit(e)
+            { 
+            debugger;
+            var Name = document.getElementById("name").value; 
+            var Email = document.getElementById("email").value; 
+            var Dob = document.getElementById("dob").value;         
+            arrayList.push({Name:Name,Email:Email,Dob:Dob})
+            var list =document.getElementById("col"); 
+            var td = "";
+            for(var i=0;i<arrayList.length;i++)
+            {
+              td +="<tr>";     
+              td +="<td>"+arrayList[i].Name+"</td>";
+              td +="<td>"+arrayList[i].Email+"</td>";
+              td +="<td>"+arrayList[i].Dob+"</td>";
+
+              td +="</tr>";
+            }        
+              list.innerHTML = td;
+            }
+      	 </script>
+    </body>
+    </html>
+

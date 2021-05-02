@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> STOP WATCH </title>
+<style>
+body {
+background:orange;
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+height:100%;
+}
+
+.wrapper {
+width: 800px;
+margin: 30px auto;
+color:black;
+text-align:center;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 2em;                 /* em is used to resize font according to orignal */
+  text-transform: uppercase;
+}
+
+#seconds, #tens {
+  font-size:2em;
+}
+
+button{
+@include corners (5px);
+background:red;
+color:white;
+border: solid 1px white;
+text-decoration:none;
+cursor:pointer;
+font-size:1.2em;
+padding:18px 10px;
+width:180px;
+margin: 10px;
+ outline: none;
+ &:hover{
+@include transition;
+background:white;
+border: solid 1px white;
+color:blue;
+	}
+}
+</style>
+<script>
+window.onload = function zeenat() {//automatically call in first time page load // in place of calling function we use window . onload
+
+ 
+  
+  var seconds = 00; 
+  var tens = 00; 
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
+// $("#button").click(function(){
+
+// })
+  buttonStart.onclick = function() {
+     clearInterval(Interval);
+
+     Interval = setInterval(startTimer,10);
+       
+  }
+  
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+  }
+  
+
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+  
+    tens = "00";
+  	seconds = "00";
+    appendTens.innerHTML = tens;
+    appendSeconds.innerHTML = seconds;
+   
+  }
+  
+   
+  
+  function startTimer () {
+    
+   tens++; 
+    
+    if(tens < 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+  
+  }
+  
+
+}
+</script>
+<body>
+<div class="wrapper">
+<h1>Stopwatch</h1>
+<h2>Vanilla JavaScript Stopwatch</h2>
+<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+<button id="button-start">Start</button>
+<button id="button-stop">Stop</button>
+<button id="button-reset">Reset</button>
+</div>
+</body>
+</head>
+</html> 

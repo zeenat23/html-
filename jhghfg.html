@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+  	<image id="image" src="19012010014.jpg" ><br/>
+      <a href="19012010014.jpg" download="file">download</a>
+    <input type="button" id="dwn-btn" value="Download dinamically generated  file"/>
+    <script type="text/javascript">
+    function download(filename, image) {
+      debugger;
+    var element = document.createElement('a');
+    element.setAttribute('href', 'http://cdn.elegantthemes.com/blog/wp-content/uploads/2015/02/custom-trackable-short-url-feature.png');
+   
+    element.setAttribute('download', filename);
+    element.open();
+}
+
+// Start file download.
+document.getElementById("dwn-btn").addEventListener("click", function(){
+    // Generate download of hello.txt file with some content
+    var image = document.getElementById("image");
+    var filename = "hello.jpg";
+    
+    download(filename,image);
+}, false);
+
+
+
+  	
+</script>
+</body>
+</html>

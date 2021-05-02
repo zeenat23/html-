@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	
+</head>
+<body>
+	<button onclick="myFunction();"> submit </button>
+	   
+	<script type="text/javascript">
+		   function myFunction(text)
+		{   var arr=[];
+               var ar="";
+               for(var i=0;i<text.length;i++)
+                {
+              
+                arr.push(text.substr(i,1));
+                }
+                for(var i=0;i<arr.length;i++)
+                { 
+                  if(arr[i]==arr[i].toUpperCase())
+                  {
+                    ar += arr[i].toLowerCase();
+                  }
+                  else
+                  {
+                    ar += arr[i].toUpperCase();
+                  }
+                }
+                console.log(ar);
+
+                                                                                
+		}
+
+          myFunction("Germany");
+
+
+	
+	</script>
+
+
+</body>
+</html>

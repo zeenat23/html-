@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> DOCUMENT </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+</head>
+<body>
+	<div class="container" align="center">
+		<h1 class="text-capitalize">Background Color : <span id="hexvalue" ></span></h1>
+			<a href="#" id="btn"onclick="back()"> CLICK ME </a>
+		</div>
+		<script>
+			function back(){
+			
+			const hexvalues=[0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+			var hex="#"
+			btn = document.getElementById("btn");
+			value = document.getElementById("hexvalue");
+			var body = document.querySelector("body");
+			for(var i =0;i<6;i++)
+			{
+				var index=parseInt(Math.random()*hexvalues.length);
+				
+				hex+=hexvalues[index]
+			}
+				 value.innerHTML = hex;
+				body.style.backgroundColor = hex
+			}
+			
+		</script>
+		
+	</body>
+	</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title> Analog Clock</title>
+
+<style type="text/css">
+	body{
+		background-color: black;
+	}
+	#canvas
+	{
+		margin-left: 300px;
+		margin-right: 50px;
+	}
+</style>
+</head>
+<body>
+	<canvas id="canvas" width ="600" height="400"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var radius= canvas.height/2;///diameter/2
+		ctx.translate(radius,radius);//for positioning the objects at center
+		// to reduce clock radius to 90%
+		radius = radius * 0.90 // clock can fit inside the canvas 
+		drawclock();
+		function drawclock()
+		{
+			ctx.arc(0,0,radius,0,2*Math.PI);//arc method used to create an arc or curve or circle
+			ctx.fillStyle="white";   //fill clock with white color
+			ctx.fill();      //fill the current part of drawing 
+		}
+
+
+
+
+
+
+	</script>
+</body>
+</html>

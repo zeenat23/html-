@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	<style>
+		#username-err{
+			color:red;
+			font-size: 15px;
+			letter-spacing: 1px;
+			margin-top: 5px;
+			text-align: center;
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	    <form onsubmit="e.preventDefault();Submit();"> 
+		<input id="username" type="type" name="username" placeholder="username" required>
+		<input id="password" type="password" name="password" placeholder="password" required>
+		<input id="btn-submit"  type="submit" value="login"/>
+	</form>
+
+		<div>
+			<h1> form submission </h1>
+			<span id="name">   </span>
+			<span id="pass">
+			</span>
+        </div>
+	
+	<script type="text/javascript">
+
+
+        function Submit(e){
+     
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+        var request = {'userName':username,'password':password}
+		$.ajax({
+			 type: "GET",
+            contentType: "application/json; charset=utf-8",       
+            url: "https://reqres.in/api/users?page=2",
+            data: "",
+            dataType: "json",
+            success: function (data) {
+            	document.getElementById("name").innerHTML=username ;
+            	document.getElementById("pass").innerHTML=password;
+
+
+            	if(data==1)
+            	{
+            		alert("success");
+            	}
+		},
+		error:function(){
+			
+			alert("failed");
+		}
+
+	});
+
+}
+
+
+	
+	</script>
+
+
+</body>
+</html>

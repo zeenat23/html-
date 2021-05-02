@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> javascript crud </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+</head>
+<body>
+  <h1><center>JavaScript CRUD Example Tutorial</center></h1>
+  <hr>
+      <div class="employee-form">
+                <form onsubmit="event.preventDefault();FormSubmit();" >
+		<div>
+		 <label>Full Name</label>
+         <input type="text" name="fullName" id="name">
+     </div>
+     <div>
+          <label>Email Id</label>
+          <input type="text" name="email" id="email">
+           </div>
+            <div>
+          <label>Salary</label>
+          <input type="text" name="salary" id="salary">
+          </div>
+          <input type="submit" value="Submit">
+
+      </form>
+      <div class = "employees-table">
+       <table class="list table-bordered  " id="employeeList" cellpadding="10" >
+         <thead>
+          <tr>
+            <th>Full Name</th>
+             <th>Email Id</th>
+             <th>Salary</th>
+             <th>Action</th>
+
+         </tr>
+     </thead>
+     <tbody>
+     </tbody>
+
+ </table>
+</div>
+<script type="text/javascript">
+
+var selectrow=null;
+function FormSubmit()
+{
+  //if (validate())
+  //{
+    var formdata= readform();
+  //}
+  if(selectrow==null)
+  {
+    insertrecord(formdata);
+  }
+else
+{
+  updaterecord(formdata);
+  resetform();
+}
+}
+	
+  function readform()
+  {
+    var formdata={};
+    formdata["fullName"]=document.getElementById("name").value;
+    formdata["email"]=document.getElementById("email").value;
+    formdata["salary"]=document.getElementById("salary").value;
+    return formdata;
+  }
+                                                  
+  function insertrecord(data)
+  {
+    var table= document.getElementById("employeeList");
+    var newrow=table.insertRow(table.length);
+    cell1 = newrow.insertCell(0);
+    cell1.innerHTML = data.fullName;
+    cell1 = newrow.insertCell(1);
+    cell1.innerHTML = data.email;
+    cell1 = newrow.insertCell(2);
+    cell1.innerHTML = data.salary;
+    cell1 = newrow.insertCell(3);
+    cell1.innerHTML =  `<button><a onClick="onEdit(this)">Edit</a><button>
+                       <button><a onClick="onDelete(this)">Delete</a></button>`;
+}
+function resetform()
+{
+   document.getElementById("fullName").value = "";
+    document.getElementById("email").value = "";
+     document.getElementById("salary").value = "";
+     selectrow=null;
+}
+
+function onEdit(td)
+{
+  if(confirm("are u sure to dleete?"))
+
+{
+ selectrow=td.parentElement;
+
+  document.getElementById("fullName").value = selectrow.cells[0].innerHTML;
+  document.getElementById("email").value = selectrow.cells[1].innerHTML;
+   document.getElementById("salary").value = selectrow.cells[2].innerHTML;
+
+}
+}
+
+ function updaterecord(formdata)
+ {
+  selectrow.cells[0].innerHTML = formdata.fullName;
+ selectrow.cells[1].innerHTML = formdata.email;
+ selectrow.cells[2].innerHTML = formdata.salary;
+}
+function onDelete(td)
+{
+  if(confirm("are u sure to dleete?"))
+  {
+    row=td.parentElement;
+    document.getElementById("employeeList").deleteRow(row.rowIndex);
+        resetForm();
+  }
+}
+/*function validate() {
+    isValid = true;
+    if (document.getElementById("name").value == "") {
+        isValid = false;
+        document.getElementById("ValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("ValidationError").classList.contains("hide"))
+            document.getElementById("ValidationError").classList.add("hide");
+    }
+    return isValid;
+}*/
+</script>
+
+
+
+
+</body>
+</html>

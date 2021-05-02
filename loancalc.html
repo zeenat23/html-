@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style type="text/css">
+</style>
+<body>
+	<div id="loan" style="text-align: center;">
+	<h1> Loan Calculator </h1><br><br>
+	<p>Loan Amount:$<input type="number" min="1" max="500000" id = "amount" onchange="compute()" /></p><br>
+	<p>Increase rate:%<input type="number" id = "rate" min="1" max="100" onchange="compute()"/></p><br>
+	<p>Months to pay:<input type="number" id = "pay" min="1" max="300" onchange="compute()"/></p><br>
+	<h2 id="month"> </h2>
+</div>
+<script type="text/javascript">
+	function compute()
+	{
+	var amount = document.getElementById("amount").value;
+	var rate = document.getElementById("rate").value;
+	
+	var pay = document.getElementById("pay").value;
+	var interest = (amount*(rate*0.1))/pay;
+	var payment = ((amount / pay )*rate).toFixed(2);
+	document.getElementById('month').innerHTML="Monthly Payment=$"+payment;
+}
+	
+	
+
+
+
+
+</script>
+</body>
+</head>
+</html>

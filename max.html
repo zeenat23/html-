@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form validation</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	
+</head>
+<body>
+	<button onclick="myFunction();"> submit </button>
+	   
+	<script type="text/javascript">
+		function myFunction(N)
+		   {
+    var sum=0;
+       var i;
+      for(i=0;i<N;i++)
+      {
+       
+        sum +=i;
+       if(sum>N)
+       {
+         sum = i-1;
+
+        break;
+       }
+
+      }
+
+  
+    console.log(sum);
+     
+     }
+myFunction(25);
+	</script>
+
+
+</body>
+</html>
